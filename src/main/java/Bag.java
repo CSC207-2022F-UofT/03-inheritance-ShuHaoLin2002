@@ -5,8 +5,6 @@
  * 1. Introduction to Java helpful.
  */
 
-import java.lang.constant.Constable;
-
 public abstract class Bag {
     /*
      * TODO: Create the following private instance variables
@@ -36,7 +34,7 @@ public abstract class Bag {
         this.color = bag_color;
         this.capacity = bag_capacity;
         this.numberOfContents = 0;
-        this.contents = new String[capacity];
+        this.contents = new String[this.capacity];
     }
 
 
@@ -50,15 +48,15 @@ public abstract class Bag {
      *           - getCapacity
      */
     public String getColor() {
-        return color;
+        return this.color;
     }
 
     public int getNumberOfContents() {
-        return numberOfContents;
+        return this.numberOfContents;
     }
 
     public int getCapacity() {
-        return capacity;
+        return this.capacity;
     }
 
 
@@ -88,11 +86,13 @@ public abstract class Bag {
      *       and false otherwise.
      */
 
-    public void addItem(String item){
-        if (this.capacity - this.numberOfContents >= 1){
+    public boolean addItem(String item){
+        if (this.numberOfContents < this.capacity){
             this.contents[numberOfContents] = item;
             this.numberOfContents += 1;
+            return true;
         }
+        return false;
     }
 
 
